@@ -1,4 +1,53 @@
 # Practice-Problems #1
+1.
+Write a program that inputs the name, quantity, price of three items. The name should not
+contain spaces. Output a bill with a tax rate of 6.25%. All prices should be displayed with two
+decimal places. The bill should be formatted in columns with 30 characters for the name, 10
+characters for the quantity, 10 characters for the price, and 10 characters for the total. 
+
+
+New twist: please display the previous price of an item and in the bill calculate how much they saved or how much more they spent.
+
+Sample input and output is shown as follows:
+
+
+Input name of item 1:
+lollipops
+Input quantity of item 1:
+10
+Input price of item 1:
+0.50
+Input previous price of item 1:
+0.25
+
+Input name of item 2:
+diet_soda
+Input quantity of item 2:
+3
+Input price of item 2:
+1.25
+Input previous price of item 2:
+1.00
+
+Input name of item 3:
+chocolate_bar
+Input quantity of item 3:
+20
+Input price of item 3:
+0.75
+Input previous price of item 3:
+1.00
+
+Your bill:
+Item 	   Quantity 		Price 		Total	
+lollipops    10 		0.50 		5.00	This item was previously on sale for $0.25. You spent an extra $2.50.
+diet_soda    3 			1.25 		3.75	This item was previously on sale for $1.00. You spent an extra $0.75.
+chocolate_bar 20 		0.75 		15.00	You bought this item on sale for $0.75. You saved $5.00.
+
+Subtotal 23.75
+6.25% sales tax 1.48
+Total 25.23
+
 import java.util.*;
 
 public class receipt {
