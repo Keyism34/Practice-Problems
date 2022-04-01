@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class Recipe {
+
+    public static void main(String[] args) {
+        System.out.println("What is this recipe called?");
+        Scanner scan = new Scanner(System.in);
+        String item = scan.next();
+        System.out.println("Ingredient #1:");
+        String ingredients1 = scan.next();
+        System.out.println("How many?");
+        double amount1 = scan.nextDouble();
+        System.out.println("What units?");
+        String measure1 = scan.next();
+      
+        System.out.println();
+        System.out.println("Ingredient #2:");
+        String ingredients2 = scan.next();
+        System.out.println("How many?");
+        double amount2 = scan.nextDouble();
+        System.out.println("What units?");
+        String measure2 = scan.next();
+       
+        System.out.println();       
+        System.out.println("Ingredient #3:");
+        String ingredients3 = scan.next();
+        System.out.println("How many?");
+        double amount3 = scan.nextDouble();
+        System.out.println("What units?");
+        String measure3 = scan.next();
+      
+        System.out.println();
+        
+        System.out.println("###Coffee###");
+        System.out.println("Ingredients (3 total):");
+        System.out.println(amount1 + measure1 + "of" + ingredients1);
+        System.out.println(amount2 + " of"+ ingredients2);
+        System.out.println(amount3 + "of "+ ingredients3);
+        
+        System.out.println("instructions:");
+        System.out.println("Heat the water, and stir in the instant coffee and milk.");
