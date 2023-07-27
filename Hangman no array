@@ -1,0 +1,75 @@
+Here's a simple Java code for Hangman game without using arrays:
+
+```java
+import java.util.Scanner;
+
+public class Hangman {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to Hangman!");
+        System.out.println("Guess the word by entering one letter at a time.");
+        
+        String secretWord = "hangman";
+        int numberOfGuesses = 5;
+        StringBuilder guessedLetters = new StringBuilder();
+        
+        while (numberOfGuesses > 0) {
+            System.out.println();
+            System.out.println("Secret word: " + getMaskedWord(secretWord, guessedLetters.toString()));
+            System.out.println("You have " + numberOfGuesses + " guesses left.");
+            System.out.println("Enter your guess: ");
+            
+            String guess = scanner.next().toLowerCase();
+            
+            if (guess.length() != 1 || !Character.isLetter(guess.charAt(0))) {
+                System.out.println("Invalid guess! Please enter one letter at a time.");
+                continue;
+            }
+            
+            char letter = guess.charAt(0);
+            
+            if (guessedLetters.toString().contains(guess)) {
+                System.out.println("You already guessed that letter!");
+                continue;
+            }
+            
+            guessedLetters.append(letter);
+            
+            if (secretWord.contains(guess)) {
+                System.out.println("Good guess!");
+            } else {
+                System.out.println("Oops! Wrong guess!");
+                numberOfGuesses--;
+            }
+            
+            if (getMaskedWord(secretWord, guessedLetters.toString()).equals(secretWord)) {
+                System.out.println("Congratulations! You guessed the word correctly: " + secretWord);
+                break;
+            }
+        }
+        
+        if (numberOfGuesses == 0) {
+            System.out.println("Game over! You failed to guess the word. The secret word was: " + secretWord);
+        }
+        
+        scanner.close();
+    }
+    
+    private static String getMaskedWord(String word, String guessedLetters) {
+        StringBuilder maskedWord = new StringBuilder();
+        
+        for (char c : word.toCharArray()) {
+            if (guessedLetters.contains(Character.toString(c))) {
+                maskedWord.append(c);
+            } else {
+                maskedWord.append("*");
+            }
+        }
+        
+        return maskedWord.toString();
+    }
+}
+```
+
+In this code, the secret word is "hangman" and the player is given 5 incorrect guesses to guess the word. The code continuously prompts the player to enter their guess and validates it. It also checks if the guessed letter is already guessed or not. If the guessed letter is correct, it displays "Good guess!" and if it is incorrect, it displays "Oops! Wrong guess!" and decreases the number of guesses left. The game ends when the player guesses the word correctly or runs out of guesses.
